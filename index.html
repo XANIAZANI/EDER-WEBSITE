@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EDER Sàrl — Construire aujourd'hui, pour un meilleur demain</title>
+  <meta name="description" content="EDER Sàrl — Vente et location d'appartements, maisons et bâtiments à Fribourg. Horaires 7h–19h. Contactez-nous pour vos projets immobiliers." />
+  <meta property="og:title" content="EDER Sàrl — Construire aujourd'hui, pour un meilleur demain" />
+  <meta property="og:description" content="Vente et location d'appartements, maisons et bâtiments. Basé à Cournillens (FR)." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      /* Palette gris/beige (modifiable) */
+      --bg:#f6f3ee;          /* beige très clair */
+      --paper:#ffffff;       /* blanc cartes */
+      --text:#2b2b2b;        /* texte principal */
+      --muted:#2b2b2b;       /* texte secondaire */
+      --primary:#b8a48b;     /* beige moyen (accent) */
+      --primary-strong:#8f7a60; /* hover */
+      --line:#e6e1d9;        /* lignes séparateurs */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:50;background:rgba(246,243,238,.9);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand .logo{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--primary-strong));display:grid;place-items:center;color:white;font-weight:800;letter-spacing:.5px}
+    .brand .name{font-weight:800;letter-spacing:.3px}
+    .brand small{display:block;color:var(--muted);font-weight:500;font-size:.78rem;margin-top:2px}
+    nav ul{display:flex;gap:1rem;list-style:none;margin:0;padding:0}
+    nav a{padding:.55rem .75rem;border-radius:10px;font-weight:600}
+    nav a:hover, nav a.active{background:var(--paper);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+    .cta{background:var(--primary);color:#fff;padding:.6rem .9rem;border-radius:10px;font-weight:700}
+    .cta:hover{background:var(--primary-strong)}
+
+    /* Hero */
+    .hero{padding:72px 0}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+    .badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--paper);border:1px solid var(--line);padding:.35rem .6rem;border-radius:999px;font-size:.82rem;color:var(--muted)}
+    .title{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:.6rem 0;font-weight:900}
+    .lead{font-size:1.05rem;color:var(--muted)}
+    .hero-card{background:var(--paper);border:1px solid var(--line);padding:18px;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,.04)}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+    .kpi{background:var(--bg);border:1px solid var(--line);padding:14px;border-radius:14px;text-align:center}
+    .kpi strong{font-size:1.3rem}
+
+    /* Sections */
+    section{padding:56px 0;border-top:1px solid var(--line)}
+    section h2{font-size:1.7rem;margin:0 0 10px 0}
+    section p.section-lead{color:var(--muted);margin:0 0 22px 0}
+
+    /* Services */
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 6px 20px rgba(0,0,0,.04)}
+    .card h3{margin:.2rem 0 .2rem;font-size:1.07rem}
+    .card p{color:var(--muted);font-size:.95rem}
+
+    /* Projets */
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 18px}
+    .chip{padding:.45rem .7rem;border-radius:999px;border:1px solid var(--line);background:var(--paper);color: var(--text);font-weight:600;cursor:pointer}
+    .chip.active{background:var(--primary);color:#fff;border-color:transparent}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .project{border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--paper)}
+    .project img{aspect-ratio:4/3;object-fit:cover}
+    .project .meta{padding:10px}
+    .project .meta strong{display:block}
+    .project .meta span{color:var(--muted);font-size:.9rem}
+
+    /* Contact */
+    .contact-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .info .row{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
+    .info .label{min-width:110px;color:var(--muted)}
+    form{display:grid;gap:10px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper);font:inherit}
+    textarea{min-height:130px;resize:vertical}
+    button{border:0;border-radius:12px;padding:12px 16px;font-weight:800;background:var(--primary);color:#fff;cursor:pointer}
+    button:hover{background:var(--primary-strong)}
+    .map{border:1px solid var(--line);border-radius:16px;overflow:hidden;height:100%}
+
+    /* Footer */
+    footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.95rem}
+
+    /* Responsive */
+    @media (max-width:960px){
+      .hero .wrap{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .contact-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width:560px){
+      nav ul{display:none}
+      .services{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- ======= Header / Navigation ======= -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div>
+         <img src="images/EDER LOGO BLANC.png" alt="EDER sàrl"style="width: 50px;px;height:auto;object-fit:contain;border-radius:10px;">
+          
+        </div>
+        <div>
+          <div class="name">EDER sàrl</div>
+          <small>Fribourg • Vente & Location</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#avenir">À venir</a></li>
+        </ul>
+      </nav>
+      <a class="cta" href="#contact">Nous contacter</a>
+    </div>
+  </header>
+
+  <!-- ======= Hero / Accueil ======= -->
+  <main id="accueil" class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="badge">Entreprise basée à Fribourg</span>
+        <h1 class="title">Construire aujourd'hui, pour un meilleur demain</h1>
+        <p class="lead">EDER sàrl est une entreprise de construction diriger vers la promotion immobilière. Nous proposons la vente et la location de biens immobiliers comme des maisons et appartements. </p>
+        <div class="kpis">
+          <div class="kpi"><strong>Vente</strong><div class="muted">Appartements & maisons</div></div>
+          <div class="kpi"><strong>Location</strong><div class="muted">Appartements & maisons</div></div>
+          <div class="kpi"><strong>Fribourg</strong><div class="muted">Ville de Fribourg et environs</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <!-- Remplace l'image ci-dessous par une photo de projet / équipe -->
+          <img src="images/image devant Korma.jpg" alt="Immobilier" />
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="cta" href="#projets">Voir nos projets</a>
+            <a class="chip" href="#contact">Demander une info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ======= Services / Activités ======= -->
+  <section aria-labelledby="services-title">
+    <div class="container">
+      <h2 id="services-title">Nos activités</h2>
+      <p class="section-lead">Nous intervenons principalement à Fribourg et alentours </p>
+      <div class="services">
+        <div class="card">
+          <h3>Vente d'appartements</h3>
+          <p>Accompagnement complet : projet commun, visite, remise en clées</p>
+        </div>
+        <div class="card">
+          <h3>Vente de maisons</h3>
+          <p>Accompagnement complet : projet commun, visite, remise en clées</p>
+        </div>
+        <div class="card">
+          <h3>Location de maisons et d'appartements</h3>
+          <p>Immeubles d'habitation et mixtes, maison individuelles ou contigues</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= Projets ======= -->
+  <section id="projets" aria-labelledby="projets-title">
+    <div class="container">
+      <h2 id="projets-title">Projets</h2>
+      <p class="section-lead">Quelques réalisations récentes. <strong>Remplace les images et textes</strong> par tes propres projets (avant / après si possible).</p>
+
+      <!-- Filtres (catégories éditables) -->
+      <div class="toolbar" id="filters">
+        <button class="chip active" data-filter="all">Tous</button>
+        <button class="chip" data-filter="vente-appart">Vente — Appartements</button>
+        <button class="chip" data-filter="vente-maison">Vente — Maisons</button>
+        <button class="chip" data-filter="location">Location</button>
+      </div>
+
+      <!-- Grille de projets (duplique un .project pour en ajouter) -->
+      <div class="grid" id="projectGrid">
+        <article class="project" data-cat="vente-appart">
+          <img src="" alt="Appartement rénové à Fribourg" />
+          <div class="meta"><strong>appartements – Portalban</strong><span>Location • 2025</span></div>
+        </article>
+        <article class="project" data-cat="vente-maison">
+          <img src="" alt="Maison contemporaine" />
+          <div class="meta"><strong>Maison individuelle – Cournillens</strong><span>Vente • 2026</span></div>
+        </article>
+        <article class="project" data-cat="location">
+          <img src="" alt="Location appartement" />
+          <div class="meta"><strong>Appartements-Dompierre</strong><span>Location • 2020</span></div>
+        </article>
+        <article class="project" data-cat="vente-bat">
+          <img src="" alt="Immeuble" />
+          <div class="meta"><strong>appartements-Dompierre</strong><span>Vente • 2023</span></div>
+        </article>
+        <article class="project" data-cat="vente-maison">
+          <img src="" alt="Maison" />
+          <div class="meta"><strong>Maison jumelée – Cormaboeuf</strong><span>Vente et location • 2025</span></div>
+        </article>
+        <article class="project" data-cat="vente-appart">
+          <img src="" alt="Appartement" />
+          <div class="meta"><strong>Appartements-Marly</strong><span>Vente • 2026</span></div>
+        </article>
+      </div>
+
+      <!-- Astuce pour remplacer les images : coller vos photos (format 4:3 idéal). -->
+      <!-- Exemple : <img src="/photos/maison-xyz.jpg" alt="Maison XYZ"> -->
+    </div>
+  </section>
+
+  <!-- ======= Contact ======= -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container contact-wrap">
+      <div class="info">
+        <h2 id="contact-title">Contact</h2>
+        <p class="section-lead">Nous répondons du lundi au samedi, de 7h à 19h.</p>
+        <div class="row"><div class="label">Entreprise</div><div><strong>EDER sàrl</strong><br/>Route de Cormérod 51, 1721 Cournillens</div></div>
+        <div class="row"><div class="label">Téléphone</div><div><a href="tel:+41787762826">078 776 2826</a></div></div>
+        <div class="row"><div class="label">E-mail</div><div><a href="mailto:gutaerzan1@gmail.com">gutaerzan1@gmail.com</a></div></div>
+        <div class="row"><div class="label">Horaires</div><div>7h – 19h</div></div>
+
+        <!-- Formulaire sans backend : envoi via e-mail du client (mailto). 
+             Pour un envoi serveur, il faudra connecter un service plus tard. -->
+        <form method="POST" action="mailto:gutaerzan1@gmail.com" enctype="text/plain">
+          <input name="Nom" placeholder="Votre nom" required />
+          <input type="email" name="Email" placeholder="Votre e‑mail" required />
+          <textarea name="Message" placeholder="Votre message" required></textarea>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+      <div class="map">
+        <iframe title="Carte — EDER sàrl" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Route%20de%20Corm%C3%A9rod%2051%2C%201721%20Cournillens&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= À venir / Actualités ======= -->
+  <section id="avenir" aria-labelledby="avenir-title">
+    <div class="container">
+      <h2 id="avenir-title">À venir</h2>
+      <p class="section-lead">Cette section évoluera prochainement...</p>
+      <div class="services">
+        <div class="card"><h3>Projets à venir</h3><p>Annoncer les futures mises en vente / locations (teasing).</p></div>
+        <div class="card"><h3>Actualités</h3><p>Communiqués, partenariats, chantiers marquants.</p></div>
+        <div class="card"><h3>Conseils</h3><p> acheter, vendre, louer sereinement.</p></div>
+      </div>
+  </section>
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <div>© <span id="year"></span> EDER sàrl — Tous droits réservés.</div>
+      <div style="display:flex;gap:14px">
+        <a href="#contact">Contact</a>
+        <span>•</span>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Activer l'année courante dans le footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Navigation active (simple)
+    const links = document.querySelectorAll('header nav a');
+    links.forEach(a=>a.addEventListener('click',()=>{
+      links.forEach(l=>l.classList.remove('active')); a.classList.add('active');
+    }));
+
+    // Filtres Projets
+    const chips = document.querySelectorAll('#filters .chip');
+    const cards = document.querySelectorAll('#projectGrid .project');
+    chips.forEach(chip=>chip.addEventListener('click',()=>{
+      chips.forEach(c=>c.classList.remove('active')); chip.classList.add('active');
+      const f = chip.dataset.filter;
+      cards.forEach(card=>{
+        card.style.display = (f==='all' || card.dataset.cat===f) ? '' : 'none';
+      });
+    }));
+
+    // TODO LOGO: Remplacer le carré « E » par votre logo image
+    // Exemple: document.querySelector('.logo').innerHTML = '<img src="/logo.png" alt="EDER sàrl" style="width:100%;height:100%;object-fit:cover;border-radius:10px">'
+  </script>
+</body>
+</html>
+
